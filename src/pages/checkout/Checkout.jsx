@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 
 const Checkout = () => {
     const service = useLoaderData();
+    useTitle('checkout');
     const { title}= service;
     return (
         <div>
@@ -42,7 +44,7 @@ const Checkout = () => {
             </form>
             <div className="card-body">
                    
-                </div>
+            </div>
         </div>
     );
 };
