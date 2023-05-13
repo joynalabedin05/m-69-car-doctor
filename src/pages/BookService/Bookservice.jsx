@@ -25,7 +25,7 @@ const Bookservice = () => {
             price: price,
         }
         console.log(booking);
-        fetch('http://localhost:5000/bookings',{
+        fetch('https://car-doctor-server-dusky.vercel.app/services/bookings',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

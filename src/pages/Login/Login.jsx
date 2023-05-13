@@ -25,12 +25,12 @@ const Login = () => {
             // const loggedUser = {
             //     email : user.email
             // }
-            
+
             console.log(user);
             navigate(from, { replace: true });
 
             
-            // fetch('http://localhost:5000/jwt',{
+            // fetch('https://car-doctor-server-dusky.vercel.app/services/jwt',{
             //     method: 'POST',
             //     headers:{
             //         'content-type':'application/json'
