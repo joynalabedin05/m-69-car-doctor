@@ -4,6 +4,7 @@ import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import useTitle from '../../hooks/useTitle';
+import SocialLogin from '../shared/socialLogin/SocialLogin';
 const Login = () => {
     const {signIn}=useContext(AuthContext);
     useTitle('login');
@@ -16,28 +17,33 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         // console.log(email,password);
+
         signIn(email,password)
         .then(result=>{
             const user = result.user;
-            const loggedUser = {
-                email : user.email
-            }
-            console.log(loggedUser);
+
+            // const loggedUser = {
+            //     email : user.email
+            // }
             
-            fetch('http://localhost:5000/jwt',{
-                method: 'POST',
-                headers:{
-                    'content-type':'application/json'
-                },
-                body: JSON.stringify(loggedUser)
-            })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log('jwt response',data);
-                // localstorage is not the best, it is second best to access token
-                localStorage.setItem('car-access-token', data.token);
-                navigate(from, { replace: true });
-            })
+            console.log(user);
+            navigate(from, { replace: true });
+
+            
+            // fetch('http://localhost:5000/jwt',{
+            //     method: 'POST',
+            //     headers:{
+            //         'content-type':'application/json'
+            //     },
+            //     body: JSON.stringify(loggedUser)
+            // })
+            // .then(res=>res.json())
+            // .then(data=>{
+            //     console.log('jwt response',data);
+            //     // localstorage is not the best, it is second best to access token
+            //     localStorage.setItem('car-access-token', data.token);
+            // })
+
         })
         .catch(error=>{
             console.log(error);
@@ -75,6 +81,7 @@ const Login = () => {
                 </div>
                 </form> 
                 <p className='mt-2'>New to this car doctors? <Link className='text-orange-600 font-bold' to={'/signup'}>Sign Up</Link> </p>
+                <SocialLogin></SocialLogin>
             </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import useTitle from '../../hooks/useTitle';
+import SocialLogin from '../shared/socialLogin/SocialLogin';
 const Signup = () => {
     const {createUser} = useContext(AuthContext);
     useTitle('signup');
@@ -60,6 +61,7 @@ const Signup = () => {
                 </div>
                 </form> 
                 <p className='mt-2'>Already have an account? <Link className='text-orange-600 font-bold' to={'/login'}>login</Link> </p>
+                <SocialLogin></SocialLogin>
             </div>
             </div>
         </div>
