@@ -8,33 +8,33 @@ import Bookings from "../pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path:'/',
-            element: <Home></Home>,
-        },
-        {
-            path:'/login',
-            element: <Login></Login>,
-        },
-        {
-            path:'/signup',
-            element: <Signup></Signup>,
-        },
-        {
-            path:'/book/:id',
-            element: <PrivateRoute><Bookservice></Bookservice></PrivateRoute>,
-            loader: ({params})=> fetch(`https://car-doctor-server-dusky.vercel.app/services/services/${params.id}`)
-        },
-        {
-            path:'bookings',
-            element: <PrivateRoute><Bookings></Bookings></PrivateRoute>,
-           
-        }
-      ]  
-    },
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>,
+      },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      },
+      {
+        path: '/signup',
+        element: <Signup></Signup>,
+      },
+      {
+        path: '/book/:id',
+        element: <PrivateRoute><Bookservice></Bookservice></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://car-doctor-server-dusky.vercel.app/services/services/${params.id}`)
+      },
+      {
+        path: 'bookings',
+        element: <PrivateRoute><Bookings></Bookings></PrivateRoute>,
+
+      }
+    ]
+  },
+]);
 export default router;  
